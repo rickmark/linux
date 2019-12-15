@@ -27,7 +27,6 @@
 #define MACHINE_FLAG_DIAG9C	BIT(3)
 #define MACHINE_FLAG_ESOP	BIT(4)
 #define MACHINE_FLAG_IDTE	BIT(5)
-#define MACHINE_FLAG_DIAG44	BIT(6)
 #define MACHINE_FLAG_EDAT1	BIT(7)
 #define MACHINE_FLAG_EDAT2	BIT(8)
 #define MACHINE_FLAG_TOPOLOGY	BIT(10)
@@ -83,7 +82,9 @@ struct parmarea {
 extern int noexec_disabled;
 extern int memory_end_set;
 extern unsigned long memory_end;
+extern unsigned long vmalloc_size;
 extern unsigned long max_physmem_end;
+extern unsigned long __swsusp_reset_dma;
 
 #define MACHINE_IS_VM		(S390_lowcore.machine_flags & MACHINE_FLAG_VM)
 #define MACHINE_IS_KVM		(S390_lowcore.machine_flags & MACHINE_FLAG_KVM)
@@ -92,7 +93,6 @@ extern unsigned long max_physmem_end;
 #define MACHINE_HAS_DIAG9C	(S390_lowcore.machine_flags & MACHINE_FLAG_DIAG9C)
 #define MACHINE_HAS_ESOP	(S390_lowcore.machine_flags & MACHINE_FLAG_ESOP)
 #define MACHINE_HAS_IDTE	(S390_lowcore.machine_flags & MACHINE_FLAG_IDTE)
-#define MACHINE_HAS_DIAG44	(S390_lowcore.machine_flags & MACHINE_FLAG_DIAG44)
 #define MACHINE_HAS_EDAT1	(S390_lowcore.machine_flags & MACHINE_FLAG_EDAT1)
 #define MACHINE_HAS_EDAT2	(S390_lowcore.machine_flags & MACHINE_FLAG_EDAT2)
 #define MACHINE_HAS_TOPOLOGY	(S390_lowcore.machine_flags & MACHINE_FLAG_TOPOLOGY)
